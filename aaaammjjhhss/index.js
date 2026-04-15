@@ -1,5 +1,6 @@
 
 const express = require('express');
+const path = require('path');
 let pokemons = require('./db-pokemons');
 let helper = require('./helper');
 
@@ -7,8 +8,11 @@ let helper = require('./helper');
 const app = express();
 const PORT = process.env.PORT || 3003;
 
+// Serve static files
+app.use(express.static(__dirname));
+
 app.get('/', (req, res) => {
-    res.send(`<h3>Hello, YBoosST TEAM !</h3>`);
+    res.sendFile(path.join(__dirname, 'dashboard.html'));
 });
 
 
