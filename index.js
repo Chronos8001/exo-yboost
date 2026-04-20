@@ -1,4 +1,3 @@
-
 const express = require('express');
 const path = require('path');
 let pokemons = require('./db-pokemons');
@@ -93,5 +92,8 @@ app.get('/api/pokemons/:id', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`);
+    const serverUrl = process.env.NODE_ENV === 'production' 
+        ? `Server listening on port ${PORT}` 
+        : `http://localhost:${PORT}`;
+    console.log(serverUrl);
 });
