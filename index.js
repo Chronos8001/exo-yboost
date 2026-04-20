@@ -12,7 +12,7 @@ app.use(express.static(__dirname));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dashboard.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // GET all pokemons
